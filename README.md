@@ -48,7 +48,7 @@ Use grep to check how many proteins were left in the file goodProteins and how m
 ### BLAST PROTEINS
 Here we will run an all-by-all blast of the proteins that passed the quality filter. Blast must be previously installed. Easy to install via conda.
 First, make the blast database.
-```makeblastdb -in goodProteins.fasta --dbtype prot -parse_seqids -out goodProteins.fasta```
+```makeblastdb -in goodProteins.fasta -dbtype prot -parse_seqids -out goodProteins.fasta```
 Second, blast the proteins.
 ```blastp -db goodProteins.fasta -query goodProteins.fasta -outfmt 6 -out blastresults.tsv -num_threads 30```
 Connect to singularity contain again to reformat the results using orthomcl.
