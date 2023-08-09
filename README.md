@@ -79,7 +79,7 @@ Now exit the singularity image shell
 
 ```exit```
 
-Use grep to check how many proteins were left in the file goodProteins and how many were moved to poorProteins. You can also rerun the above my decreaseing the number of maximum allowed stop codons. I have tried stop codons allow = 5
+Use grep to check how many proteins were left in the file goodProteins and how many were moved to poorProteins. You can also rerun the above my decreaseing the number of maximum allowed stop codons. I have tried stop codons allowed = 3
 
 ### BLAST PROTEINS
 
