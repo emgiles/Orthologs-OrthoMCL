@@ -160,11 +160,12 @@ This will create and instance called mysql. You can double check that it exists:
 
 If you get an error or the instance is not created. Check for errors in spacing in the command above. Also make sure that you created the instance in the correct WD.
 
-Initialize and run the MySQL server. 
+Initialize and run the MySQL server. If you have not previously closed the mysql instance you do not need to repead this step. Doing so will generate an error message loop that continues for awhile until finally shutting down.
 
 ```singularity run instance://mysql```
 
 ##### MAKE THE DATABASE AND TABLES FOR OrthoMCL
+
 ```singularity exec instance://mysql mysqladmin create orthomcl```
 
 Make sure that you are in the working directory and then we will use the orthomcl container to install the schema for the database and create the tables
