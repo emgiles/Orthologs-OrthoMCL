@@ -48,6 +48,7 @@ If file is generated with 0 content, create an intermediate file and then rename
 So that we don't have to manually install OrthoMCL we can run it via Singularity. If you are not familiar with Singularity, there is a bit of a steep learning curve. Try to understand each command before executing. Make sure that Singularity is installed on your cluster.
 
 ##### CREATE AN ORTHOMCL CONTAINER ON YOUR CLUSTER
+
 ```singularity pull --name orthomcl.simg shub://ISU-HPC/orthomcl```
 
 This will create a .simg file in your working directory.
@@ -136,10 +137,13 @@ Use the following exactly as written
 ```END```
 
 ##### RUN MySQL VIA SINGULARITY INSTANCE
+
 ```singularity pull --name mysql.simg shub://ISU-HPC/mysql```
 
 ##### BIND-MOUNT MySQL DIRECTORIES TO ORTHOMCL CONTAINER AND STORE ON WD
+
 Make sure that you are using the orthomcl working directory and are not located in a subdirectory.
+
 ```mkdir -p ${PWD}/mysql/var/lib/mysql ${PWD}/mysql/run/mysqld```
 
 Check to make sure that no other singularity instances are running because this can cause issues with the database creation.
@@ -148,7 +152,7 @@ Check to make sure that no other singularity instances are running because this 
 
 Set up the singularity instance for the MySQL server
 
-```singularity instance start --bind ${PWD} --bind ${PWD}/mysql/var/lib/mysql/:/var/lib/mysql --bind ${PWD}/mysql/run/mysqld:/run/mysqld ./mysql.simg mysql```
+```singularity instance start --bind ${HOME} --bind ${PWD}/mysql/var/lib/mysql/:/var/lib/mysql --bind ${PWD}/mysql/run/mysqld:/run/mysqld ./mysql.simg mysql```
 
 This will create and instance called mysql. You can double check that it exists:
 
