@@ -211,7 +211,8 @@ Rename the groups with the ortholog group prefix OG1.5_
 
 ```orthomclMclToGroups OG1.5_ 1000 < groups_1.5.txt > named_groups_1.5.txt```
 
-###POST-PROCESS RESULTS
+### POST-PROCESS RESULTS
+
 First, download the following scripts from [here](https://github.com/ISUgenomics/common_scripts/tree/master), and place them in your working directory:
 
 ```CopyNumberGen.sh```
