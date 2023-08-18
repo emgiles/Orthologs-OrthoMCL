@@ -205,7 +205,7 @@ If you exited singularity, reconnect:
 
 Run MCL, --abc is the input format, -I is the inflation value, -o is the output.
 
-```mcl mclInput ---abc -I 1.5 -o groups_1.5.txt```
+```mcl mclInput --abc -I 1.5 -o groups_1.5.txt```
 
 Rename the groups with the ortholog group prefix OG1.5_
 
