@@ -185,7 +185,11 @@ Call the pairs
 
 ```orthomclPairs orthomcl.config pairs.log cleanup=no```
 
-If an error results due to duplicated sequences you must remove the database orthomcl and create it again. Duplication can occur if the sequences were loaded twice into the database. 
+If an error results due to duplicated sequences you must remove the database orthomcl and create it again. Duplication can occur if the sequences were loaded twice into the database. Here is how to remove the database:
+
+```singularity exec instance://mysql mysqladmin drop orthomcl```
+
+Again, dropping the database is only necessary if pairs could not be created due to duplicates. If no error was generated, continue to the below.
 
 Retrieve the results
 
