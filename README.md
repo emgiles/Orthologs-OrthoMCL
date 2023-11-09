@@ -140,6 +140,10 @@ Use the following exactly as written
 
 ```singularity pull --name mysql.simg shub://ISU-HPC/mysql```
 
+If you had previously started an instance called mysql you can stop it and restart. Stop instance:
+
+``` singularity instance stop mysql```
+
 ##### BIND-MOUNT MySQL DIRECTORIES TO ORTHOMCL CONTAINER AND STORE ON WD
 
 Make sure that you are using the orthomcl working directory and are not located in a subdirectory.
