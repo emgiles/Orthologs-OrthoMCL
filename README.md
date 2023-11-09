@@ -203,7 +203,7 @@ If this step results in an error or empty files the pairs subdirectory must be d
 
 Stop the mysql instance
 
-```singularity instance.stop mysql```
+```singularity instance stop mysql```
 
 Cluster orthologs with MCL found within the orthomcl shell.
 
