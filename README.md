@@ -255,6 +255,8 @@ Create a list of the SCO orthologous groups
 
 Extract the sequences. Must have previously installed and activated cdbtools.
 
+See R script for making Venn diagrams and Upset plots for downstream processing
+
 ```ExtractSeq.sh -o orthogroups named_groups_1.5_scos.txt goodProteins.fasta```
 
 This will create a folder called orthogroups. There should be n files each containing y sequences where n is the number of SCOs recovered and y is the number of species compared. The sequences of each orthogroup can then be aligned individually and a tree can be generated individually. The best species tree can then be selected. This can be done in ASTRAL, BEAST, IQTREE.
