@@ -184,6 +184,44 @@ Load the parsed blast results
 
 ```orthomclLoadBlast orthomcl.config similarSequences.txt```
 
+You might want to check that the similarSequences were actually added to the database. This is very relevant if you used bash scripts to run Singularity with nohup.
+
+First, connect to the container and bind mount to the shell if you previously exited
+
+```singularity shell --bind $PWD --bind ${PWD}/mysql/run/mysqld:/run/mysqld orthomcl.simg```
+
+Second, connect to MySQL, provide username (dbLogin from config file) and password (dbPassword from config file)
+
+```mysql -u your_username -p```
+
+Third, show databases
+
+```SHOW DATABASES;```
+
+If you do not see the database orthomcl then it was not properly created
+
+Fourth, select the database
+
+```USE orthomcl;```
+
+Fifth, get the size and the dimensions of the database tables
+
+```
+SELECT 
+    table_name AS "Table", 
+    table_rows AS "Rows", 
+    ROUND(((data_length + index_length) / 1024 / 1024), 2) AS "Size (MB)"
+FROM 
+    information_schema.tables
+WHERE 
+    table_schema = "orthomcl"
+ORDER BY 
+    table_rows DESC;
+    ```
+Then, you can compare the number of rows to the number of rows in the similarSequences.txt file. Are they the same or close?
+
+```exit```
+
 #### DETERMINE ORTHOLOGOUS RELATIONSHIPS AND CLUSTERING 
 Call the pairs
 
