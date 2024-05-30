@@ -206,16 +206,7 @@ Fourth, select the database
 
 Fifth, get the size and the dimensions of the database tables
 
-```SELECT 
-    table_name AS "Table", 
-    table_rows AS "Rows", 
-    ROUND(((data_length + index_length) / 1024 / 1024), 2) AS "Size (MB)"
-FROM 
-    information_schema.tables
-WHERE 
-    table_schema = "orthomcl"
-ORDER BY 
-    table_rows DESC;```
+```SELECT table_name AS "Table", table_rows AS "Rows", ROUND(((data_length + index_length) / 1024 / 1024), 2) AS "Size (MB)" FROM information_schema.tables WHERE table_schema = "orthomcl" ORDER BY table_rows DESC;```
 
 Then, you can compare the number of rows to the number of rows in the similarSequences.txt file. Are they the same or close?
 
