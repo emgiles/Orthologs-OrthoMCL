@@ -184,6 +184,8 @@ Load the parsed blast results
 
 ```orthomclLoadBlast orthomcl.config similarSequences.txt```
 
+##### CHECK THAT LOADING BLAST RESULTS WORKED PROPERLY
+
 You might want to check that the similarSequences were actually added to the database. This is very relevant if you used bash scripts to run Singularity with nohup.
 
 First, connect to the container and bind mount to the shell if you previously exited
@@ -213,7 +215,7 @@ Then, you can compare the number of rows to the number of rows in the similarSeq
 ```exit```
 
 #### DETERMINE ORTHOLOGOUS RELATIONSHIPS AND CLUSTERING 
-Call the pairs
+##### Call the pairs
 
 ```orthomclPairs orthomcl.config pairs.log cleanup=no```
 
@@ -223,7 +225,17 @@ If an error results due to duplicated sequences you must remove the database ort
 
 Again, dropping the database is only necessary if pairs could not be created due to duplicates. If no error was generated, continue to the below.
 
-Retrieve the results
+If you look at the log file and it does not appear that calling the pairs was properly completed, you can check some of the mysql variables. One of these is the inodb timeout. It is possible that inodb timed out before clustering was completed. Connect to MySQL again as described in the section above. Then: 
+
+```SHOW VARIABLES LIKE 'innodb_lock_wait_timeout';```
+
+Usually inodb lock wait timeout is set to 50s. You can increase this parameter, for example to 120s.
+
+```SET innodb_lock_wait_timeout = 120;```
+
+
+##### RETRIEVE THE RESULTS
+If calling the pairs worked properly as indicated by a completion message on the pairs.log, then you can dump the pairs to a file:
 
 ```orthomclDumpPairsFiles orthomcl.config```
 
