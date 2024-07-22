@@ -300,6 +300,11 @@ Extract the sequences. Must have previously installed and activated cdbtools.
 This will create a folder called orthogroups. There should be n files each containing y sequences where n is the number of SCOs recovered and y is the number of species compared.
 
 Downstream Analyses:
+
 See R script for making Venn diagrams and Upset plots for downstream processing
-See parse_ortho_freq_table.py to recover orthogroups unique to species. Then return to the step above "Create a list of SCO orthologous groups" to generate list of orthologous groups and genes that are unique to taxa.
+
+See parse_ortho_freq_table.py to recover orthogroups unique to species. 
+
+Then return to the step above "Create a list of SCO orthologous groups" to generate list of orthologous groups and genes that are unique to taxa.
+
 See get_gene_lists_unique_genes.sh to recover gene lists from unique orthogroups. These can be used for GO enrichment.
