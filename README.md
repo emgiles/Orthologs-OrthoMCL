@@ -42,19 +42,6 @@ I also changed the protein names to include a species identifier. An example is 
 
 ```sed -i 's/>XP/>HU/g' Halirufe.fasta ```
 
-or
-
-```#!/bin/bash```
-
-```for file in *.fasta; do```
-
-  ```basename=$(basename "$file" .fasta) # Extract the base name of the file```
-  
-  ```sed -i "s/^>/>\${basename}_/" "$file"```
-  
-```done```
-
-
 ### RUN ORTHOMCL VIA SINGULARITY
 So that we don't have to manually install OrthoMCL we can run it via Singularity. If you are not familiar with Singularity, there is a bit of a steep learning curve. Try to understand each command before executing. Make sure that Singularity is installed on your cluster.
 
