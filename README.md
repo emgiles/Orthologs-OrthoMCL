@@ -42,6 +42,8 @@ I also changed the protein names to include a species identifier. An example is 
 
 ```sed -i 's/>XP/>HU/g' Halirufe.fasta ```
 
+or
+
 ```#!/bin/bash```
 
 ```for file in *.fasta; do```
