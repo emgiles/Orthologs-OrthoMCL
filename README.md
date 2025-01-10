@@ -40,9 +40,7 @@ Run the loop
 
 I also changed the protein names to include a species identifier. An example is given below. This was done individually for each species, but a loop could also be generated.
 
-```sed -e 's/>XP/>HU/g' Halirufe.fasta >Halirufe.fasta```
-
-If file is generated with 0 content, create an intermediate file and then rename back to 8 letter.fasta distinction.
+```sed -i 's/>XP/>HU/g' Halirufe.fasta ```
 
 ### RUN ORTHOMCL VIA SINGULARITY
 So that we don't have to manually install OrthoMCL we can run it via Singularity. If you are not familiar with Singularity, there is a bit of a steep learning curve. Try to understand each command before executing. Make sure that Singularity is installed on your cluster.
