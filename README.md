@@ -60,6 +60,10 @@ We will make a new working directory called complaintFasta. The files will be ad
 
 ```singularity shell orthomcl.simg```
 
+If singularity does not automatically recognize your working directory, then exit and reconnect with:
+
+```singularity shell -B $(pwd):$(pwd) orthomcl.simg```
+
 ```cd complaintFasta```
 
 ```for fasta in .../original/*.fasta; do```
